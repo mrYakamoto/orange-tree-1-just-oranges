@@ -15,7 +15,11 @@ until tree.dead?
     basket << tree.pick_an_orange!
   end
 
-  avg_diameter = # It's up to you to calculate the average diameter for this harvest.
+  total_diameter = 0
+  basket.each do |orange|
+    total_diameter += orange.diameter
+  end
+  avg_diameter = (total_diameter / basket.length).round(2)
 
   puts "Year #{tree.age} Report"
   puts "Tree height: #{tree.height} feet"
